@@ -5,12 +5,12 @@ class LinkedList
 	{
 		int data;
 		Node Link;
-		Node(int data)
+		Node(int data)   //constructor
 		{
 			this.data=data;
 		}
 	}
-	public void PrintList()
+	public void PrintList() //print the elements
 	{
 		Node n = head;
 		while(n!=null)
@@ -18,6 +18,12 @@ class LinkedList
 			System.out.print(n.data+" ");
 			n=n.Link;
 		}
+	}
+	public void pushInFront(int new_data)
+	{
+		Node n = new Node(new_data);  //new Node
+		n.Link = head;
+		head = n;
 	}
 	public static void main(String args[])
 	{
@@ -27,6 +33,7 @@ class LinkedList
 		Node third = new Node(5);
 		obj1.head.Link=second;
 		second.Link=third;
+		obj1.pushInFront(0);
 		obj1.PrintList();
 	}
 }
